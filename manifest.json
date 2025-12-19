@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "Adeeb Technology Lab New Tab",
+    "short_name": "Adeeb Tech Lab New Tab",
+    "version": "1.0",
+    "description": "We offer free computer courses to help you learn and grow in tech, along with professional paid services in software development, video editing, IoT projects, architecture, and graphic design.",
+    "author": "Salman Adeeb",
+    "homepage_url": "https://AdeebTechLab.blogspot.com/",
+    "icons": {
+      "16": "icons/16.png",
+      "24": "icons/24.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "96": "icons/96.png",
+      "128": "icons/128.png"
+    },
+    "action": {
+      "default_icon": {
+        "19": "icons/19.png",
+        "38": "icons/38.png"
+      }
+    },
+    "chrome_url_overrides": {
+      "newtab": "index.html"
+    },
+    "permissions": [
+      "storage",
+      "geolocation"
+    ]
+
+  }

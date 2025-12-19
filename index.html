@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adeeb Tech Lab</title>
+<link rel="icon" type="image/ATLabLogo.png" href="ATLabLogo.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    
+
+<style>
+    body{
+        margin:0;
+        font-family:Arial, sans-serif;
+        background:#fff;
+        color:#1b1b1b;
+        text-align:center;
+        
+    }
+    header{
+        display:flex;
+        justify-content:space-between;
+        padding:20px 40px;
+        align-items:center;
+    }
+    .logo-area{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        font-size:24px;
+        margin: 0 auto;
+        font-weight:bold;
+    }
+
+    /* Header buttons (appear inside header, not fixed) */
+    .header-btn {
+      position: static;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background-color: #163042;
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+    .header-btn.left { margin-right: 10px; }
+    .header-btn.right { margin-left: 10px; }
+    .logo{
+        width:60px;
+        height:60px;
+        border-radius:50%;
+        background:#eee;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+    /* button{
+        background:#163042;
+        color:#fff;
+        border:none;
+        padding:10px 18px;
+        border-radius:10px;
+        cursor:pointer;
+        font-size:16px;
+    } */
+
+    /* TIMER */
+    .timer-box{
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        margin-top:15px;
+        margin-left: 410px;
+    }
+    .time{
+        background:#fff;
+        border-radius:15px;
+        padding:20px;
+        width:90px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        font-size:45px;
+        font-weight:bold;
+    }
+    .date-box{
+        margin-left:20px;
+        background:#fff;
+        padding:11px;
+        border-radius:15px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        font-size:18px;
+        font-weight: 500;
+        width: 257px;
+         height:21px;
+    }
+
+    .location-area{
+        margin-top:-41px;
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        margin-left: 850px;
+    }
+    .loc-box{
+        background:#163042;
+        color:white;
+        padding:7px 19px;
+        border-radius:10px;
+        font-size:14px;
+    }
+
+    /* SEARCH */
+    .search-container{
+        margin-top:-245px;
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        margin-left: 447px;
+    }
+    .search-container input{
+        width:535px;
+        height:45px;
+        padding-left:20px;
+        border-radius:20px;
+        border:1px solid #ccc;
+        font-size:16px;
+    }
+    #searchBtn, #voiceBtn{
+        width:45px;
+        height:45px;
+        border-radius:12px;
+        background:#163042;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        cursor:pointer;
+        color:#fff;
+        font-size:20px;
+    }
+
+    /* MORE APPS */
+    .more-app{
+        margin-top:50px;
+        font-size:22px;
+        font-weight:bold;
+        margin-left: 440px;
+    }
+    .app-box{
+        margin-top:20px;
+        display:flex;
+        justify-content:center;
+        gap:40px;
+        margin-left: 440px;
+    }
+    .app-item{
+        padding:20px;
+        background:#fff;
+        width:140px;
+        border-radius:15px;
+       box-shadow:0 2px 10px rgba(0,0,0,0.1);
+        cursor:pointer;
+        font-size:16px;
+        font-weight:bold;
+        color:#163042;
+    }
+
+    .more-apps{
+        display:flex;
+        gap:12px;
+        justify-content:center;
+      }
+      .app{
+        background:var(--card);
+        padding:10px;
+        border-radius:10px;
+        box-shadow:var(--shadow);
+        min-width:84px;
+        text-align:center;
+        cursor:pointer;
+      }
+      .app:hover{
+        
+        box-shadow:var(--shadow-hover);
+      }
+      .iframe{
+        margin-top:-100px;
+        margin-left: -750px;
+        width:350px;
+        height:500px;
+        border-radius:15px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      
+
+    /* SOCIAL ICONS */
+    .socials{
+        position: fixed;
+        bottom: 22px; /* center vertically with corner buttons */
+        left: 50%;
+        transform: translateX(-50%);
+        display:flex;
+        gap:18px;
+        font-size:26px;
+        cursor:pointer;
+        color: #163042;
+        z-index: 998; /* below corner buttons */
+        align-items:center;
+    }
+    .socials a{
+        color:inherit;
+        text-decoration:none;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:36px;
+        height:36px;
+        border-radius:6px;
+    }
+    .socials a:hover{ background: rgba(22,48,66,0.06); }
+
+    /* Responsive: reduce sizes on narrow screens */
+    @media (max-width: 600px) {
+      .corner-btn { padding: 8px 12px; bottom: 16px; }
+      .corner-btn.left-bottom { left: 12px; }
+      .corner-btn.right-bottom { right: 12px; }
+      .socials { font-size:20px; gap:12px; bottom: 18px; }
+    }
+
+    /* Footer corner buttons — place at bottom and responsive */
+    .corner-btn {
+      position: fixed;
+      bottom: 20px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: var(--mustard);
+      color: #ffffff;
+      background-color: #163042;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.2s ease;
+    }
+    .corner-btn:hover {
+      transform: translateY(-2px);
+    }
+    .corner-btn.left-bottom {
+      left: 20px;
+    }
+    .corner-btn.right-bottom {
+      right: 20px;
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+<button class="header-btn left" onclick="window.open('https://google.com','_blank')" aria-label="Open Google in new tab">Google</button>
+
+    <div class="logo-area">
+        <div class="logo">
+          <img src="Assets/ATLabLogo.png" alt="logo" width="50" height="50">
+        </div>
+       
+        Adeeb Technology Lab
+    </div>
+
+    <button class="header-btn right" onclick="window.open('https://tasks.google.com/tasks','_blank')" aria-label="Open Todo List in new tab">Todo List</button>
+</header>
+
+<!-- TIMER -->
+<div class="timer-box">
+    <div class="time"><span id="hrs">00</span> <br> </div>
+    <div class="time"><span id="min">00</span> <br> </div>
+    <div class="time"><span id="sec">00</span> <br> </div>
+
+    <span class="date-box" id="todayDate"></span>
+</div>
+
+<div class="location-area">
+    <div class="loc-box">
+        <i class="fa-solid fa-temperature-three-quarters"></i>
+            <span id="tempVal">30°C</span></div>
+    <div class="loc-box">
+         <i class="fa-solid fa-location-dot"></i>
+        <span id="location">Detecting location...</span>
+    </div>
+</div>
+
+<div>
+     <iframe class="iframe" src="Phone/index.html" frameborder="0"></iframe>
+
+</div>
+  
+<!-- SEARCH -->
+
+ <div class="search-container">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search anything here..."
+          />
+          <button id="voiceBtn"><i class="fa-solid fa-microphone"></i></button>
+          <button id="searchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+
+          </div>
+
+
+<!-- MORE APPS -->
+<div class="more-app">More App</div>
+<hr style="width:40%;margin:auto;margin-top:10px;margin-right:215px;">
+ 
+<div class="app-box">
+     <div class="more-apps">
+          <div class="app" onclick="window.open('https://adeeb-technology-lab.blogspot.com/search/label/Extension')"><img src="Assets/charome.png" alt="Extension" style="width:28px;height:28px"><div style="font-size:13px;margin-top:6px">Extension</div></div>
+          <div class="app" onclick="window.open('https://adeeb-technology-lab.blogspot.com/search/label/Software')"><img src="Assets/softwaer.png" alt="Software" style="width:28px;height:28px"><div style="font-size:13px;margin-top:6px">Software</div></div>
+          <div class="app" onclick="window.open('https://adeeb-technology-lab.blogspot.com/search/label/Application')"><img src="Assets/app.png" alt="Mobile App" style="width:28px;height:28px"><div style="font-size:13px;margin-top:6px">Mobile App</div></div>
+         </div> 
+         </div> 
+
+
+
+
+         
+
+
+
+<footer>
+<button class="corner-btn left-bottom" onclick="window.open('https://salmanadeeb.wixsite.com/livechat','_blank')" aria-label="Live Chat (opens in new tab)">Live Chat</button>
+    
+<!-- SOCIAL -->
+<div class="socials" aria-label="social links">
+            <a href="https://www.facebook.com/AdeebTechnologyLab" aria-label="facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/" aria-label="twitter" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/adeebtechlab" aria-label="instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/" aria-label="linkedin" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@AdeebTechLab" aria-label="youtube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://whatsapp.com/channel/0029VaCeeBg4inos1Eqtbc43" aria-label="whatsapp" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          
+<button class="corner-btn right-bottom" onclick="window.open('https://chat.openai.com/','_blank')" aria-label="AI tools (opens in new tab)">AI Tools</button>
+
+</footer>
+
+<script>
+/* CLOCK */
+function updateClock(){
+    let now = new Date();
+    document.getElementById("hrs").innerText = now.getHours();
+    document.getElementById("min").innerText = now.getMinutes();
+    document.getElementById("sec").innerText = now.getSeconds();
+
+    document.getElementById("todayDate").innerText =
+        now.toLocaleDateString('en-GB', {
+            weekday:'long',
+            day:'2-digit',
+            month:'long',
+            year:'numeric'
+        });
+}
+setInterval(updateClock, 1000);
+
+/* SEARCH FUNCTION */
+ const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+
+  searchBtn.onclick = () => {
+    const q = searchInput.value.trim();
+    if (q) window.open(`https://www.google.com/search?q=${encodeURIComponent(q)}`, "_self");
+  };
+
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const q = searchInput.value.trim();
+      if (q) window.open(`https://www.google.com/search?q=${encodeURIComponent(q)}`, "_self");
+    }
+  });
+
+  /* VOICE SEARCH */
+   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SpeechRecognition) {
+    const recog = new SpeechRecognition();
+    document.getElementById("voiceBtn").onclick = () => {
+      recog.start();
+    };
+    recog.onresult = (e) => {
+      document.getElementById("searchInput").value = e.results[0][0].transcript;
+    };
+  } else {
+    document.getElementById("voiceBtn").style.display = "none";
+  }
+/* LOCATION & WEATHER */
+
+
+
+function fetchOpenMeteoWeather() {
+  const url = "https://api.open-meteo.com/v1/forecast?latitude=29.3956&longitude=71.6833&current_weather=true";
+  console.log(url);
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      const w = data.current_weather;
+      document.getElementById("tempVal").innerText = Math.round(w.temperature) + "°C";
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("location").innerText = "Weather error";
+    });
+}
+
+fetchOpenMeteoWeather();
+ 
+</script>
+
+</body>
+</html>
