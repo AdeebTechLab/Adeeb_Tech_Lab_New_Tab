@@ -45,26 +45,12 @@ Adeeb_Tech_Lab_New_Tab/
 
 ## 🚀 Installation (Chrome / Edge)
 
-1. Clone or download the repository
-```bash
-git clone https://github.com/AdeebTechLab/Adeeb_Tech_Lab_New_Tab.git
-````
-
-2. Open your browser and go to:
+1. Open your browser and go to:
 
 ```
 chrome://extensions/
 ```
 
-3. Enable **Developer Mode** (top right)
-
-4. Click **Load unpacked**
-
-5. Select the project folder
-
-✅ Open a new tab — your custom page is live!
-
----
 
 ## 🎨 Design Philosophy
 
@@ -100,6 +86,3 @@ This project is licensed under the **MIT License**.
 
 ---
 
-⭐ If you like this project, don’t forget to **star the repo**!
-
-```
